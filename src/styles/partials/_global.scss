@@ -7,6 +7,7 @@
     padding: 0rem;
     box-sizing: border-box;
     font-family: avenir-next-regular;
+    background-color: $beige;
 }
 
 //Page Header
@@ -15,7 +16,7 @@ h1 {
     line-height: 2rem;
     font-family: avenir-next-bold;
     font-weight: 700;
-    color: $BrainFlix-Black;
+
 
     @include tablet {
         font-size: 2.0625rem;
@@ -37,7 +38,6 @@ h3 {
     line-height: 1.125rem;
     font-family: avenir-next-bold;
     font-weight: 700;
-    color: $BrainFlix-Black;
 
     @include tablet {
         font-size: 0.875rem;
@@ -62,7 +62,6 @@ p {
     @extend h3;
     font-family: avenir-next-regular;
     font-weight: 400;
-    color: $BrainFlix-Black;
 }
 
 textarea {

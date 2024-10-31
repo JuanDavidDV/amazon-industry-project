@@ -1,0 +1,18 @@
+@use './variables' as *;
+@use './media-query' as *;
+
+@mixin section-main ($color) {
+    width: 100%;
+    background-color: $color;
+}
+
+@mixin display-layout ($padding, $margin) {
+    padding: $padding;
+    margin: $margin;
+}
+
+@mixin desktop-layout ($padding){
+    width: $desktop;
+    margin: 0 auto;
+    padding: $padding;  //Padding added to keep section layout, and be consistent on the website when the screen width is > 1789px
+}
