@@ -1,0 +1,58 @@
+@use './styles/partials/variables' as *;
+@use './styles/partials/mixins' as *;
+@use "sass:color";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: $font-primary;
+  background-color: $amazon-light-bg;
+  color: $amazon-text;
+  line-height: 1.4;
+}
+
+.container {
+  max-width: 1500px;
+  margin: 0 auto;
+  padding: $spacing-md;
+
+  @include tablet {
+    padding: $spacing-lg;
+  }
+}
+
+// Common utility classes
+.button-primary {
+  @include button-primary;
+}
+
+.button-secondary {
+  @include button-secondary;
+}
+
+.card {
+  @include card;
+}
+
+// Typography utilities
+.text-success {
+  color: $amazon-success;
+}
+
+.text-error {
+  color: $amazon-error;
+}
+
+.link {
+  color: $amazon-link;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+    color: color.adjust($amazon-link, $lightness: -10%);
+  }
+} 

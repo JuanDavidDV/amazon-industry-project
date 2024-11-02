@@ -1,0 +1,55 @@
+@use '../../styles/partials/variables' as *;
+@use '../../styles/partials/media-query' as *;
+
+.reviews {
+  padding: 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+
+  &__list {
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  &__loading, &__error {
+    text-align: center;
+    padding: 2rem;
+    font-size: 1.2rem;
+  }
+}
+
+.review {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+
+  &--pending {
+    border-left: 4px solid orange;
+  }
+
+  &--approved {
+    border-left: 4px solid green;
+  }
+
+  &--rejected {
+    border-left: 4px solid red;
+  }
+
+  &__content {
+    font-size: 1rem;
+    line-height: 1.5;
+    margin-bottom: 1rem;
+  }
+
+  &__meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.875rem;
+    color: $amazon-text;
+    opacity: 0.8;
+  }
+} 

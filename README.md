@@ -1,8 +1,30 @@
-# React + Vite
+# Amazon Review System
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A review and badge reward system that allows verified purchasers to submit and peer review product reviews.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### Review System
+- Submit reviews for purchased products
+- Verify purchases with unique verification codes
+- Prevent duplicate reviews for same purchase
+- Peer review system requiring 2 approvals
+
+### Badge & Achievement System
+Achievement Levels:
+- BRONZE (Default)
+- SILVER 
+- GOLD
+- PLATINUM (30+ approved reviews)
+- DIAMOND (50+ approved reviews)
+
+Special Badges:
+- VERIFIED_REVIEWER
+- HELPFUL_PEER_REVIEWER 
+- EXPERT_REVIEWER
+- CATEGORY_SPECIALIST
+- TRUSTED_VOICE
+
+## Technical Implementation
+
+###

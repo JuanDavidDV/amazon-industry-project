@@ -1,0 +1,96 @@
+@use '../../styles/partials/variables' as *;
+@use '../../styles/partials/mixins' as *;
+@use "sass:color";
+
+.nav {
+  background-color: $amazon-primary;
+  padding: $spacing-sm 0;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+
+  &__container {
+    max-width: 1500px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    padding: 0 $spacing-md;
+    gap: $spacing-md;
+
+    @include tablet {
+      padding: 0 $spacing-lg;
+    }
+  }
+
+  &__logo {
+    width: 100px;
+    padding: $spacing-xs 0;
+
+    @include tablet {
+      width: 120px;
+    }
+  }
+
+  &__search {
+    flex: 1;
+    display: flex;
+    height: 40px;
+    
+    input {
+      flex: 1;
+      padding: 0 $spacing-md;
+      border: none;
+      border-radius: 4px 0 0 4px;
+      
+      &:focus {
+        outline: 3px solid $amazon-orange;
+      }
+    }
+
+    button {
+      width: 45px;
+      background: $amazon-yellow;
+      border: none;
+      border-radius: 0 4px 4px 0;
+      cursor: pointer;
+
+      &:hover {
+        background: color.adjust($amazon-yellow, $lightness: -5%);
+      }
+    }
+  }
+
+  &__links {
+    display: none;
+    color: white;
+    gap: $spacing-lg;
+    
+    @include tablet {
+      display: flex;
+    }
+
+    a {
+      color: white;
+      text-decoration: none;
+      font-size: $font-size-small;
+      white-space: nowrap;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  &__cart {
+    color: white;
+    display: flex;
+    align-items: center;
+    gap: $spacing-xs;
+    text-decoration: none;
+    
+    span {
+      color: $amazon-orange;
+      font-weight: bold;
+    }
+  }
+} 
