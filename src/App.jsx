@@ -1,6 +1,8 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Header from "./components/Header/Header";
 import BadgeRewards from "./components/BadgeRewards/BadgeRewards";
+import PeerReviewInterface from "./components/PeerReviewInterface/PeerReviewInterface";
+import ReviewStatus from "./components/ReviewStatus/ReviewStatus";
 
 function App () {
   return (
@@ -8,6 +10,8 @@ function App () {
       <Header />
       <Routes>
         <Route path="/" element={<BadgeRewards />} />
+        <Route path="/peer-review-interface" element={<PeerReviewInterface /> } />
+        <Route path="/review-status" element={<ReviewStatus /> } />
       </Routes>     
     
     </BrowserRouter>

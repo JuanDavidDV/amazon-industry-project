@@ -1,0 +1,91 @@
+@use '../../styles/partials/variables' as *;
+@use '../../styles/partials/media-query' as *;
+@use '../../styles/partials/mixins' as *;
+
+.peer-review-form {
+    @include section-main ($beige);
+
+    &__container {
+        @include display-layout($mobile-padding 0, 0 $mobile-margin);
+
+        @include tablet {
+            @include display-layout($tablet-padding, 0);
+        }
+
+        @include desktop {
+            padding: 0;
+            margin: 0;
+            max-width: 67rem;
+        }
+
+        &__accuracy-buttons {
+            display: flex;
+            gap: 3rem;
+            padding: 1rem 0;
+
+            &--default {
+                background-color: rgb(218, 149, 23);
+                border-color: rgb(218, 149, 23);
+                color: white;
+                padding: 0 0.5rem;
+                height: 2rem;
+                border-radius: 0.25rem;
+                width: 100%;
+                cursor: pointer;
+
+                @include tablet {
+                    width: 5rem;
+                }
+            }
+
+            &--selected {
+                @extend .peer-review-form__container__accuracy-buttons--default;
+                background-color: green;
+                border-color: green;
+            }
+        }
+
+        &__feedback {
+            display: flex;
+            flex-direction: column;
+            padding: 0.25rem 0 1rem 0;
+
+            &--label {
+                font-weight: bolder;
+                padding: 0.25rem;
+            }
+            
+            &--textarea {
+                height: 5rem;
+
+                @include tablet {
+                    height: 7rem;
+                }
+            }
+        }
+
+        &__submit {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: rgb(56, 73, 223);
+            border-color: rgb(56, 73, 223);
+            color: white;
+            padding: 0 0.5rem;
+            height: 2rem;
+            border-radius: 0.25rem;
+            width: 100%;
+            
+            &:hover {
+                background-color: rgb(86, 138, 9);
+                border-color: rgb(86, 138, 9);
+                cursor: pointer;
+            }
+
+            @include tablet {
+                width: 15rem;
+                height: 3rem;
+            }
+        }
+    }
+}
