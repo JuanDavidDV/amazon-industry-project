@@ -1,24 +1,46 @@
 [
- {
-   "userId": 11,
-   "productId": 21,
-   "verificationCode": true,
-   "productName": "Headphones",
-   "content": "This is an amazing product!",
-   "status": "PENDING",
-    "id": 1,
-    "createdAt": "Date.now",
+  {
+    "userId": "60d5f484b20b3c001f8e4f6a",
+    "productId": "12345",
+    "verificationCode": "XYZ987",
+    "content": "Great product, highly recommend!",
+    "status": "APPROVED",
+    "peerReviews": [
+      {
+        "reviewerId": "60d5f484b20b3c001f8e4f6b",
+        "approved": true
+      },
+      {
+        "reviewerId": "60d5f484b20b3c001f8e4f6c",
+        "approved": false
+      }
+    ],
+    "createdAt": "2023-10-15T14:48:00.000Z",
     "image": "http://localhost:3000/images/headphones.webp"
- },
- {
-   "userId": 12,
-   "productId": 22,
-   "verificationCode": true,
-   "productName": "Keyboard",
-   "content": "Keys are weak and keep falling apart",
-   "status": "PENDING",
-   "id": 2,  
-   "createdAt": "Yesrterday",
+  },
+  {
+    "userId": "60d5f484b20b3c001f8e4f6b",
+    "productId": "67890",
+    "verificationCode": "ABC123",
+    "content": "Not worth the price. Disappointed.",
+    "status": "PENDING",
+    "peerReviews": [],
+    "createdAt": "2023-09-10T09:30:00.000Z",
    "image": "http://localhost:3000/images/keyboard.webp"
-}
+  },
+  {
+    "userId": "60d5f484b20b3c001f8e4f6c",
+    "productId": "11223",
+    "verificationCode": "DEF456",
+    "content": "Okay product, but delivery was late.",
+    "status": "REJECTED",
+    "peerReviews": [
+      {
+        "reviewerId": "60d5f484b20b3c001f8e4f6d",
+        "approved": false
+      }
+    ],
+    "createdAt": "2023-11-01T11:00:00.000Z"
+  }
 ]
+

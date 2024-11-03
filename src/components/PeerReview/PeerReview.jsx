@@ -12,7 +12,7 @@ const PeerReview = ({ reviewId }) => {
     
     try {
       await api.submitPeerReview(reviewId, {
-        reviewerId: '123', // Replace with actual user ID from auth
+        reviewerId: '60d5f484b20b3c001f8e4f6a', // Replace with actual user ID from auth
         approved
       });
     } catch (err) {

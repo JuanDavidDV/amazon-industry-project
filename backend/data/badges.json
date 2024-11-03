@@ -1,1 +1,23 @@
-[]
+[
+    {
+      "name": "VERIFIED_REVIEWER",
+      "description": "Awarded for verifying multiple reviews.",
+      "criteria": "APPROVED_REVIEW",
+      "userId": "60d5f484b20b3c001f8e4f6a",
+      "dateAwarded": "2023-10-15T14:48:00.000Z"
+    },
+    {
+      "name": "HELPFUL_PEER_REVIEWER",
+      "description": "Recognized for providing valuable feedback to peers.",
+      "criteria": "PEER_REVIEW",
+      "userId": "60d5f484b20b3c001f8e4f6b",
+      "dateAwarded": "2023-09-10T09:30:00.000Z"
+    },
+    {
+      "name": "EXPERT_REVIEWER",
+      "description": "Awarded for consistently high-quality reviews.",
+      "criteria": "CATEGORY_MASTERY",
+      "userId": "60d5f484b20b3c001f8e4f6c",
+      "dateAwarded": "2023-11-01T11:00:00.000Z"
+    }
+]

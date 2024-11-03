@@ -1,1 +1,23 @@
-[]
+[
+    {
+      "email": "john.doe@example.com",
+      "username": "johnny",
+      "badges": ["BRONZE", "SILVER"],
+      "approvedReviews": 10,
+      "level": "SILVER"
+    },
+    {
+      "email": "jane.smith@example.com",
+      "username": "janesmith",
+      "badges": ["GOLD"],
+      "approvedReviews": 25,
+      "level": "GOLD"
+    },
+    {
+      "email": "alice.johnson@example.com",
+      "username": "alicej",
+      "badges": ["PLATINUM", "DIAMOND"],
+      "approvedReviews": 50,
+      "level": "PLATINUM"
+    }
+]

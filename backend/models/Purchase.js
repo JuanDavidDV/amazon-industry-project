@@ -1,4 +1,4 @@
-const mongoose = require('mongoose');
+import mongoose from 'mongoose';
 
 const purchaseSchema = new mongoose.Schema({
   userId: { type: mongoose.Schema.Types.ObjectId, ref: 'User', required: true },
@@ -12,4 +12,4 @@ const purchaseSchema = new mongoose.Schema({
   }
 });
 
-module.exports = mongoose.model('Purchase', purchaseSchema); 
+export default mongoose.model('Purchase', purchaseSchema);

@@ -17,8 +17,8 @@ const ReviewList = () => {
     }
   };
 
-  useEffect (() => {
-    fetchReviews()
+  useEffect(() => {
+    fetchReviews();
   }, []);
 
   return (
@@ -27,27 +27,25 @@ const ReviewList = () => {
         <h1>Products Review</h1>
         <div className="reviews__container__list">
           {reviews.map((review) => (
-            <article key={review.id} className="reviews__container__list__box">
+            <article key={review.verificationCode} className="reviews__container__list__box">
               <div>
                 <h2>{review.productName}</h2>
-                <img className="reviews__container__list__box--image" src={review.image}/>
+                <img className="reviews__container__list__box--image" src={review.image} alt={review.productName} />
                 <p className="reviews__container__list__box--content">{review.content}</p>
                 <div className="reviews__container__list__box--status">
-                  <span> Status: {review.status.toLowerCase()}</span>
+                  <span>Status: {review.status.toLowerCase() }</span>
                   <span className="reviews__date">
-                    {new Date(review.createdAt).toLocaleDateString()}
+                    , {new Date(review.createdAt).toLocaleDateString()}
                   </span>
                 </div>
-                {review.status === 'PENDING' && <PeerReview reviewId={review.id} />}
+                {review.status === 'PENDING' && <PeerReview reviewId={review.userId} />}
               </div>
             </article>
           ))}
         </div>
       </div>
     </section>
-  )
-
-
+  );
 };
 
 export default ReviewList;
