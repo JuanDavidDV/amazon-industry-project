@@ -1,4 +1,5 @@
 import "./ReviewList.scss";
+
 import { useState, useEffect } from "react";
 import api from "../../utils/api";
 
@@ -22,19 +23,20 @@ const ReviewList = () => {
 
   return (
     <section className="reviews">
-      <div className="review__container">
+      <div className="reviews__container">
         <h1>Products Review</h1>
-        <div className="review__container__list">
-          <p>{reviews.status}</p>
+        <div className="reviews__container__list">
           {reviews.map((review) => (
-            <article key={review.id} className={`review review--${review.status.toLowerCase()}`}>
-            <p className="review__content">{review.content}</p>
-            <div className="review__meta">
-              <span className="review__status">Status: {review.status}</span>
-
-            </div>
-            
-          </article>
+            <article key={review.id} className="reviews__container__list__box">
+              <p className="reviews__content">{review.content}</p>
+              <div className="reviews__meta">
+                <span className="reviews__status">Status: {review.status}</span>
+                <span className="reviews__date">
+                  {new Date(review.createdAt).toLocaleDateString()}
+                </span>
+              </div>
+              {review.status === 'PENDING' && <PeerReview reviewId={review.id} />}
+            </article>
           ))}
         </div>
       </div>

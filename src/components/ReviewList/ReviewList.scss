@@ -1,0 +1,29 @@
+@use '../../styles/partials/fonts' as *;
+@use '../../styles/partials/global' as *;
+@use '../../styles/partials/media-query' as *;
+@use '../../styles/partials/mixins' as *;
+@use '../../styles/partials/variables' as *;
+
+.reviews {
+    @include section-main ($beige);
+    
+    &__container {
+        @include display-layout($mobile-padding 0, 0 $mobile-margin);
+
+        @include tablet {
+            @include display-layout($tablet-padding, 0);
+        }
+
+        @include desktop {
+            padding: 0;
+            margin: 0;
+            max-width: 67rem;
+        }
+
+        &__list__box {
+            padding-top: 1rem;
+        }
+    }
+
+
+}
