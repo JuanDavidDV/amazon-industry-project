@@ -1,5 +1,5 @@
 import "./ReviewList.scss";
-
+import PeerReview from "../PeerReview/PeerReview";
 import { useState, useEffect } from "react";
 import api from "../../utils/api";
 
@@ -28,14 +28,18 @@ const ReviewList = () => {
         <div className="reviews__container__list">
           {reviews.map((review) => (
             <article key={review.id} className="reviews__container__list__box">
-              <p className="reviews__content">{review.content}</p>
-              <div className="reviews__meta">
-                <span className="reviews__status">Status: {review.status}</span>
-                <span className="reviews__date">
-                  {new Date(review.createdAt).toLocaleDateString()}
-                </span>
+              <div>
+                <h2>{review.productName}</h2>
+                <img className="reviews__container__list__box--image" src={review.image}/>
+                <p className="reviews__container__list__box--content">{review.content}</p>
+                <div className="reviews__container__list__box--status">
+                  <span> Status: {review.status.toLowerCase()}</span>
+                  <span className="reviews__date">
+                    {new Date(review.createdAt).toLocaleDateString()}
+                  </span>
+                </div>
+                {review.status === 'PENDING' && <PeerReview reviewId={review.id} />}
               </div>
-              {review.status === 'PENDING' && <PeerReview reviewId={review.id} />}
             </article>
           ))}
         </div>

@@ -18,74 +18,51 @@
             max-width: 67rem;
         }
 
-        &__accuracy-buttons {
+        &__wrapper {
             display: flex;
-            gap: 3rem;
-            padding: 1rem 0;
+            flex-direction: column;
+            gap: 1rem;
 
-            &--default {
-                background-color: rgb(218, 149, 23);
-                border-color: rgb(218, 149, 23);
+            @include tablet {
+                gap: 1.5rem;
+            }
+
+            &--verification {
+                width: 8rem;
+                height: 2rem;
+
+                @include tablet {
+                    width: 10rem;
+                }
+            }
+
+            &--review {
+                height: 5rem;
+            }
+
+            &__submit {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                background-color: rgb(56, 73, 223);
+                border-color: rgb(56, 73, 223);
                 color: white;
                 padding: 0 0.5rem;
                 height: 2rem;
                 border-radius: 0.25rem;
                 width: 100%;
-                cursor: pointer;
-
+                
+                &:hover {
+                    background-color: rgb(86, 138, 9);
+                    border-color: rgb(86, 138, 9);
+                    cursor: pointer;
+                }
+    
                 @include tablet {
-                    width: 5rem;
+                    width: 15rem;
+                    height: 2.50rem;
                 }
             }
-
-            &--selected {
-                @extend .peer-review-form__container__accuracy-buttons--default;
-                background-color: green;
-                border-color: green;
-            }
-        }
-
-        &__feedback {
-            display: flex;
-            flex-direction: column;
-            padding: 0.25rem 0 1rem 0;
-
-            &--label {
-                font-weight: bolder;
-                padding: 0.25rem;
-            }
-            
-            &--textarea {
-                height: 5rem;
-
-                @include tablet {
-                    height: 7rem;
-                }
-            }
-        }
-
-        &__submit {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background-color: rgb(56, 73, 223);
-            border-color: rgb(56, 73, 223);
-            color: white;
-            padding: 0 0.5rem;
-            height: 2rem;
-            border-radius: 0.25rem;
-            width: 100%;
-            
-            &:hover {
-                background-color: rgb(86, 138, 9);
-                border-color: rgb(86, 138, 9);
-                cursor: pointer;
-            }
-
-            @include tablet {
-                width: 15rem;
-                height: 3rem;
-            }
-        }
+        } 
     }
 }

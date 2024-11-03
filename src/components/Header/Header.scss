@@ -10,7 +10,7 @@
     &__container {
         @include display-layout ($mobile-padding 0, 0 $mobile-margin);
         display: flex;
-        flex-direction: column;
+        justify-content: space-between;
 
         @include tablet {
             @include display-layout ($mobile-padding $tablet-padding, 0);

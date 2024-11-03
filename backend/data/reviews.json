@@ -1,14 +1,24 @@
 [
  {
+   "userId": 11,
+   "productId": 21,
+   "verificationCode": true,
+   "productName": "Headphones",
+   "content": "This is an amazing product!",
+   "status": "PENDING",
     "id": 1,
-    "status": "completed",
-    "content": "hello world",
-    "createdAt": "Today"
+    "createdAt": "Date.now",
+    "image": "http://localhost:3000/images/headphones.webp"
  },
  {
-   "id": 2,
-   "status": "Pending",
-   "content": "hello world",
-   "createdAt": "Yesrterday"
+   "userId": 12,
+   "productId": 22,
+   "verificationCode": true,
+   "productName": "Keyboard",
+   "content": "Keys are weak and keep falling apart",
+   "status": "PENDING",
+   "id": 2,  
+   "createdAt": "Yesrterday",
+   "image": "http://localhost:3000/images/keyboard.webp"
 }
 ]

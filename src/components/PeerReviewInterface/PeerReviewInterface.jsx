@@ -1,61 +1,56 @@
-import { useState, useEffect } from "react";
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 import './PeerReviewInterface.scss';
 
-const PeerReviewInterface = ({ reviewId, productId }) => {
-  
-  const [feedback, setFeedback] = useState({
-    isAccurate: null,
-    comment: " "
+const ReviewSubmission = () => {
+  const navigate = useNavigate();
+  const [formData, setFormData] = useState({
+    verificationCode: '',
+    content: '',
+    productId: '' // In real app, this would come from product context
   });
+  const [error, setError] = useState('');
 
-  const [isSubmitting, setIsSubmitting] = useState(false);
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setIsSubmitting(true);
-
     try {
-      await PeerReviewService.verifyReview(reviewId, userId, {
-        ...feedback,
-        productId, 
-        purchaseProof: await getPurchaseProof(productId)
+      await axios.post('http://localhost:3000/api/reviews', {
+        ...formData,
+        userId: '123' // In real app, from auth context
       });
-
-    }
-    catch(error) {
-      console.error(error);
-    }
-    finally {
-      setIsSubmitting(false);
+      navigate('/');
+    } catch (err) {
+      setError(err.response?.data?.message || 'Submission failed');
     }
   };
 
   return (
-      <form onSubmit={handleSubmit} className="peer-review-form">
-        <div className="peer-review-form__container">
-          <h1>Verify This Review</h1>
-          <div className="peer-review-form__container__accuracy-buttons">
-            <button onClick={ () => setFeedback({ ...feedback, isAccurate: true })}
-              className={`peer-review-form__container__accuracy-buttons--${feedback.isAccurate === true ? 'selected' : "default"}`}>
-                Accurate
-            </button>
-            <button onClick={ () => setFeedback({ ...feedback, isAccurate: false })}
-              className={`peer-review-form__container__accuracy-buttons--${feedback.isAccurate === false ? 'selected' : "default"}`}>
-                Inaccurate
-            </button>
-          </div>
-          <div className="peer-review-form__container__feedback">
-            <label className="peer-review-form__container__feedback--label" htmlFor="inputUserFeedback">
-              Feedback
-            </label>
-            <textarea className="peer-review-form__container__feedback--textarea" value={feedback.comment} name="inputUserFeedback" placeholder="Please add your feedback" type="text" id="inputUserFeedback" 
-              onChange={ (e) => setFeedback({ ...feedback, comment: e.target.value })} />
-          </div>
-          <button className="peer-review-form__container__submit" disabled={isSubmitting || feedback.isAccurate === null}>
-            Submit Verification
-          </button>
+    <form className="peer-review-form" onSubmit={handleSubmit}>
+      <div className="peer-review-form__container">
+        <h1>Submit Review</h1>
+        {error && <div className="review-form__error">{error}</div>}
+        <div className="peer-review-form__container__wrapper">
+          <input
+          className="peer-review-form__container__wrapper--verification"
+            type="text"
+            placeholder="Verification Code"
+            value={formData.verificationCode}
+            onChange={(e) => setFormData({...formData, verificationCode: e.target.value})}
+            required
+          />
+          <textarea
+          className="peer-review-form__container__wrapper--review"
+            placeholder="Write your review"
+            value={formData.content}
+            onChange={(e) => setFormData({...formData, content: e.target.value})}
+            required
+          />
+          <button className="peer-review-form__container__wrapper__submit" type="submit">Submit Review</button>
         </div>
-      </form>
-  )
-}
+      </div>
+    </form>
+  );
+};
 
-export default PeerReviewInterface;
+export default ReviewSubmission; 
