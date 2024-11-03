@@ -21,7 +21,6 @@
 
         @include desktop {
             @include desktop-layout ($mobile-padding $tablet-padding);
-            justify-content: stretch;
             max-width: 67rem;
         }
 

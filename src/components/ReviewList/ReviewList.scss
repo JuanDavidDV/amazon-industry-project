@@ -15,8 +15,7 @@
         }
 
         @include desktop {
-            padding: 0;
-            margin: 0;
+            @include desktop-layout ($mobile-padding $tablet-padding);
             max-width: 67rem;
         }
 
