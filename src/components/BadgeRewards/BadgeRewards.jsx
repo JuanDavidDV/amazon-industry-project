@@ -7,23 +7,23 @@ import "./BadgeRewards.scss";
 
 
 const BadgeRewards = () => {
-  const [userData, setUserData] = useState({
-    badges: [],
-    level: 'BRONZE',
-    approvedReviews: 0
-  });
+  const [userData, setUserData] = useState([]);
 
-  useEffect(() => {
-    const fetchUserData = async () => {
-      try {
-        const response = await api.getUserProfile('123'); // Replace with actual user ID
-        setUserData(response.data);
-      } catch (error) {
-        console.error('Failed to fetch user data:', error);
-      }
-    };
-    fetchUserData();
+  const fetchUserBadges = async () => {
+    try {
+      const { data } = await api.getUserBadges();
+      console.log(data);
+      setUserData(data);
+    } 
+    catch (error) {
+      console.error(error);
+    }
+  };
+
+  useEffect(() => {  
+    fetchUserBadges();
   }, []);
+  
 
   return (
     <section className="badge-rewards">
@@ -44,18 +44,19 @@ const BadgeRewards = () => {
             </div>                      
           </div>
           <div className="badge-rewards__container__user">
-            <h1>Your Achievements</h1>
+            <h1 className="badge-rewards__container__user--header">Your Achievements: </h1>
             <div className="badges__level">
-              <h2>Current Level: {userData.level}</h2>
-              <p>Reviews Approved: {userData.approvedReviews}</p>
-            </div>
-            <div className="badges__grid">
-              {userData.badges.map(badge => (
-                <div key={badge} className="badge">
-                  <div className="badge__icon">{badge}</div>
-                </div>
+              <h2>Reviews you participated in with other users:</h2>             {userData.map((badge) => (
+                <article key={badge.userId} className="badge-rewards__container__user__box">
+                  <div className="badge-rewards__container__user__box__wrapper">
+                    <h3>Peer Reviewer User Id: {badge.userId}</h3>
+                    <p>Awards description: {badge.description}</p>
+                    <p>User level: {badge.level}</p>
+                  </div>
+                </article>
               ))}
             </div>
+            
         </div>
       </div>
     </section>

@@ -4,10 +4,10 @@ const baseUrl = "http://localhost:3000";
 
 export const api = {
   getReviews: () => axios.get(`${baseUrl}/reviews`),
+  getUserBadges: () => axios.get(`${baseUrl}/reviews/badges`),
   submitReview: (data) => axios.post(`${baseUrl}/reviews`, data),
   submitPeerReview: (reviewId, data) => axios.post(`${baseUrl}/reviews/${reviewId}/peer-review`, data),
-  getUserBadges: (userId) => axios.get(`${baseUrl}/users/${userId}/badges`),
-  getUserProfile: (userId) => axios.get(`${baseUrl}/users/${userId}`)
+  getUserProfile: () => axios.get(`${baseUrl}/reviews/user`)
 };
 
 export default api;

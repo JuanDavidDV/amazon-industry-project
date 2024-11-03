@@ -10,7 +10,6 @@ const ReviewList = () => {
     try {
       const { data } = await api.getReviews();
       setReviews(data);
-      console.log(data);
     }
     catch (error) {
       console.error(error);
@@ -21,10 +20,12 @@ const ReviewList = () => {
     fetchReviews();
   }, []);
 
+  console.log(reviews)
+
   return (
     <section className="reviews">
       <div className="reviews__container">
-        <h1>Products Review</h1>
+        <h1>You have been selected to peer review these products:</h1>
         <div className="reviews__container__list">
           {reviews.map((review) => (
             <article key={review.verificationCode} className="reviews__container__list__box">

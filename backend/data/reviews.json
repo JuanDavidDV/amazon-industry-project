@@ -32,7 +32,7 @@
     "userId": "60d5f484b20b3c001f8e4f6c",
     "productId": "11223",
     "verificationCode": "DEF456",
-    "content": "Okay product, but delivery was late.",
+    "content": "The audio quality is the worst",
     "status": "REJECTED",
     "peerReviews": [
       {
@@ -40,7 +40,8 @@
         "approved": false
       }
     ],
-    "createdAt": "2023-11-01T11:00:00.000Z"
+    "createdAt": "2023-11-01T11:00:00.000Z",
+    "image": "http://localhost:3000/images/speaker.png"
   }
 ]
 

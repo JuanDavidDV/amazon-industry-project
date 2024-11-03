@@ -1,13 +1,14 @@
 import { useState, useEffect } from 'react';
 import api from '../../utils/api';
 import './UserProfile.scss';
+import bronze from "../../assets/images/bronze.png";
 
 const UserProfile = () => {
   const [userData, setUserData] = useState({
     username: '',
     email: '',
     level: 'BRONZE',
-    approvedReviews: 0,
+    approvedReviews: 3,
     badges: []
   });
 
@@ -69,6 +70,7 @@ const UserProfile = () => {
 
         <div className="profile__badges">
           <h3>Earned Badges</h3>
+          <img src={bronze}/>
           <div className="badges-grid">
             {userData.badges.map(badge => (
               <div key={badge} className="badge">

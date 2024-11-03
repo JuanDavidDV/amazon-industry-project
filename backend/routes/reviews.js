@@ -19,6 +19,23 @@ router.get('/', async (req, res) => {
   }
 });
 
+const loadUserRewards = async () => {
+  const userRewardsData = await fs.readFile("./data/badges.json", "utf8");
+  return JSON.parse(userRewardsData);
+}
+
+router.get("/badges", async (req, res) => {
+  try {
+    const userRewardsParse = await loadUserRewards();
+    console.log(userRewardsParse)
+    res.status(200).json(userRewardsParse);
+  }
+  catch(error) {
+    console.error(error);
+    res.status(500).json({ message: 'Failed to load rewards data' });
+  }
+})
+
 // Submit a review
 router.post('/', async (req, res) => {
   try {
