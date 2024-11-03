@@ -23,6 +23,8 @@ const ReviewSubmission = () => {
     } catch (err) {
       setError(err.response?.data?.message || 'Submission failed');
     }
+
+    navigate("/");
   };
 
   return (

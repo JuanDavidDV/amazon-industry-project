@@ -18,7 +18,7 @@ const Header = () => {
                 <div className="header__container__box">
                     <Link to="/peer-review-interface" className={`header__container__box__link${isReviewInterface ? "--active" : ""}`}>Submit Review</Link>
                     <Link to="/badge-rewards" className={`header__container__box__link${isBadgeRewards ? "--active" : ""}`} >Badge Rewards</Link>
-                    <Link to="/profile" className={`header__container__box__link${isProfile ? "--active" : ""}`}>Profile</Link>
+                    <Link to="/profile" className={`header__container__box__link${isProfile ? "--active" : ""}`}>Welcome back: John Smith</Link>
                 </div>
             </div>
         </header>

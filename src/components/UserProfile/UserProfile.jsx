@@ -42,6 +42,7 @@ const UserProfile = () => {
     <section className="profile">
       <div className="profile__container">
         <h1>User Profile</h1>
+        <h2>John Smith</h2>
         
         <div className="profile__info">
           <h2>{userData.username}</h2>

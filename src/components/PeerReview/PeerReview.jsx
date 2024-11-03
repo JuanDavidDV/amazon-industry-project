@@ -6,19 +6,11 @@ const PeerReview = ({ reviewId }) => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [error, setError] = useState('');
 
-  const handlePeerReview = async (approved) => {
-    setIsSubmitting(true);
-    setError('');
-    
-    try {
-      await api.submitPeerReview(reviewId, {
-        reviewerId: '60d5f484b20b3c001f8e4f6a', // Replace with actual user ID from auth
-        approved
-      });
-    } catch (err) {
-      setError(err.response?.data?.message || 'Failed to submit peer review');
-    } finally {
-      setIsSubmitting(false);
+  const handlePeerReview = (approved) => {
+    const decision = approved;
+
+    if (decision === true) {
+      
     }
   };
 
