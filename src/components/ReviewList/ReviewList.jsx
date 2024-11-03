@@ -7,9 +7,9 @@ const ReviewList = () => {
 
   const fetchReviews = async () => {
     try {
-      const response = await api.getReviews();
-      setReviews(response.data);
-      console.log(response.data)
+      const { data } = await api.getReviews();
+      setReviews(data);
+      console.log(data);
     }
     catch (error) {
       console.error(error);
@@ -25,18 +25,17 @@ const ReviewList = () => {
       <div className="review__container">
         <h1>Products Review</h1>
         <div className="review__container__list">
-          {reviews.map(review => {
+          <p>{reviews.status}</p>
+          {reviews.map((review) => (
             <article key={review.id} className={`review review--${review.status.toLowerCase()}`}>
             <p className="review__content">{review.content}</p>
             <div className="review__meta">
               <span className="review__status">Status: {review.status}</span>
-              <span className="review__date">
-                {new Date(review.createdAt).toLocaleDateString()}
-              </span>
+
             </div>
             
           </article>
-          })}
+          ))}
         </div>
       </div>
     </section>

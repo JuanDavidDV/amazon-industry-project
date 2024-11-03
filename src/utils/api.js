@@ -1,9 +1,9 @@
 import axios from "axios";
 
-const baseUrl = "http://localhost:3000/api";
+const baseUrl = "http://localhost:3000";
 
 export const api = {
-  getReviews: () => axios.get(`${baseUrl}/reviews`),
+  getReviews: () => axios.get(`${baseUrl}`),
   submitReview: (data) => axios.post(`${baseUrl}/reviews`, data),
   submitPeerReview: (reviewId, data) => axios.post(`${baseUrl}/reviews/${reviewId}/peer-review`, data),
   getUserBadges: (userId) => axios.get(`${baseUrl}/users/${userId}/badges`),

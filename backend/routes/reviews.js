@@ -1,6 +1,23 @@
-const express = require('express');
+import express from 'express';
+import fs from 'fs/promises';
+import * as db from '../utils/db.js'; // Assuming db.js uses named exports
+
 const router = express.Router();
-const db = require('../utils/db');
+
+const loadReviewsData = async () => {
+  const reviewsData = await fs.readFile('./data/reviews.json', 'utf8');
+  return JSON.parse(reviewsData);
+};
+
+router.get('/', async (req, res) => {
+  try {
+    const reviewsDataParse = await loadReviewsData();
+    res.status(200).json(reviewsDataParse);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: 'Failed to load reviews data' });
+  }
+});
 
 // Submit a review
 router.post('/', async (req, res) => {
@@ -8,11 +25,11 @@ router.post('/', async (req, res) => {
     const { userId, productId, verificationCode, content } = req.body;
 
     // Verify purchase
-    const purchase = await db.findOne('purchases', { 
-      userId, 
-      productId, 
+    const purchase = await db.findOne('purchases', {
+      userId,
+      productId,
       verificationCode,
-      hasReviewed: false 
+      hasReviewed: false
     });
 
     if (!purchase) {
@@ -69,7 +86,7 @@ router.post('/:reviewId/peer-review', async (req, res) => {
     // Check for approval status
     if (review.peerReviews.filter(pr => pr.approved).length >= 2) {
       review.status = 'APPROVED';
-      
+
       // Update reviewer achievements
       const reviewer = await db.findById('users', review.userId);
       const updatedReviewer = {
@@ -104,4 +121,4 @@ router.post('/:reviewId/peer-review', async (req, res) => {
   }
 });
 
-module.exports = router; 
+export default router;
