@@ -1,3 +1,4 @@
+//This is a prototype project, modifying this file will enable app functionality 
 import mongoose from 'mongoose';
 
 const userSchema = new mongoose.Schema({

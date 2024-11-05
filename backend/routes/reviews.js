@@ -1,3 +1,4 @@
+//This is a prototype project, modifying this file will enable app functionality 
 import express from 'express';
 import fs from 'fs/promises';
 import * as db from '../utils/db.js'; // Assuming db.js uses named exports
