@@ -12,7 +12,6 @@ const BadgeRewards = () => {
   const fetchUserBadges = async () => {
     try {
       const { data } = await api.getUserBadges();
-      console.log(data);
       setUserData(data);
     } 
     catch (error) {

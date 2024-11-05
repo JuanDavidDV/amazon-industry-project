@@ -20,8 +20,6 @@ const ReviewList = () => {
     fetchReviews();
   }, []);
 
-  console.log(reviews)
-
   return (
     <section className="reviews">
       <div className="reviews__container">

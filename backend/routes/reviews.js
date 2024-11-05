@@ -28,7 +28,6 @@ const loadUserRewards = async () => {
 router.get("/badges", async (req, res) => {
   try {
     const userRewardsParse = await loadUserRewards();
-    console.log(userRewardsParse)
     res.status(200).json(userRewardsParse);
   }
   catch(error) {
