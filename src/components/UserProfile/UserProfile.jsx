@@ -7,8 +7,8 @@ const UserProfile = () => {
   const [userData, setUserData] = useState({
     username: '',
     email: '',
-    level: 'BRONZE',
-    approvedReviews: 3,
+    level: 'SILVER',
+    approvedReviews: 12,
     badges: []
   });
 
